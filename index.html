@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>J&J Imprint Co. | Custom Apparel &amp; DTF Printing</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #C0181F;
+    --black: #0D0D0D;
+    --white: #FFFFFF;
+    --offwhite: #F7F7F7;
+    --gray: #888888;
+    --light-gray: #E8E8E8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+
+  h1, h2, h3, .display {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 60px;
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    color: var(--white);
+    letter-spacing: 0.08em;
+  }
+
+  .nav-logo span { color: var(--red); }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--red);
+    color: var(--white) !important;
+    padding: 8px 18px;
+    border-radius: 2px;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+  }
+
+  @media (max-width: 720px) {
+    .nav-links { display: none; }
+  }
+
+  .hero {
+    background: var(--black);
+    color: var(--white);
+    padding: 90px 32px 76px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: 'J&J';
+    position: absolute;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30vw;
+    color: rgba(255,255,255,0.035);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    white-space: nowrap;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-content { position: relative; z-index: 2; max-width: 780px; margin: 0 auto; }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 9vw, 6.5rem);
+    text-transform: uppercase;
+  }
+
+  .hero h1 .accent { color: var(--red); }
+
+  .hero p {
+    max-width: 520px;
+    margin: 22px auto 34px;
+    color: #ccc;
+    font-size: 1rem;
+  }
+
+  .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-block;
+    padding: 15px 32px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: transform 0.15s, opacity 0.15s;
+  }
+
+  .btn:hover { transform: translateY(-2px); }
+
+  .btn-primary { background: var(--red); color: var(--white); }
+  .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.35); }
+
+  .ticker-wrap {
+    background: var(--red);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+  }
+
+  .ticker {
+    display: inline-block;
+    animation: ticker-scroll 22s linear infinite;
+  }
+
+  .ticker span {
+    display: inline-block;
+    padding: 0 28px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  @keyframes ticker-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  section { padding: 88px 32px; }
+
+  .section-inner { max-width: 1080px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: block;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 2px;
+    background: var(--light-gray);
+    border: 2px solid var(--black);
+  }
+
+  .service-card {
+    background: var(--white);
+    padding: 38px 28px;
+    transition: background 0.15s;
+  }
+
+  .service-card:hover { background: var(--offwhite); }
+
+  .service-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.85rem;
+    color: var(--red);
+    letter-spacing: 0.1em;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .service-card h3 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .service-card p { color: #555; font-size: 0.9rem; }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 36px;
+  }
+
+  .step { text-align: center; }
+
+  .step-num {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    color: var(--red);
+  }
+
+  .step h3 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+  }
+
+  .step p { color: #666; font-size: 0.88rem; }
+
+  .order-section {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  .order-section .section-title { color: var(--white); }
+  .order-section .section-label { color: var(--red); }
+
+  .order-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 10px;
+  }
+
+  .order-card {
+    background: #1a1a1a;
+    border: 1px solid #2c2c2c;
+    padding: 40px 32px;
+    text-align: center;
+  }
+
+  .order-card .tag {
+    display: inline-block;
+    background: var(--red);
+    padding: 5px 14px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    margin-bottom: 18px;
+  }
+
+  .order-card h3 {
+    font-size: 1.9rem;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .order-card p {
+    color: #aaa;
+    font-size: 0.88rem;
+    margin-bottom: 26px;
+    min-height: 44px;
+  }
+
+  footer {
+    background: var(--black);
+    color: #888;
+    text-align: center;
+    padding: 42px 32px 32px;
+    border-top: 1px solid #222;
+  }
+
+  footer .foot-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    color: var(--white);
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+
+  footer .foot-logo span { color: var(--red); }
+
+  footer p { font-size: 0.78rem; margin-top: 4px; }
+
+  footer a { text-decoration: none; color: #aaa; }
+  footer a:hover { color: var(--white); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">J&amp;J <span>IMPRINT CO.</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#order" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Custom Apparel &amp; DTF Printing</div>
+    <h1>WEAR YOUR <span class="accent">BRAND</span></h1>
+    <p>Custom shirts, hats, and merch, pressed and printed to order. Small runs, big events, and everything in between.</p>
+    <div class="btn-row">
+      <a href="#order" class="btn btn-primary">Start an Order</a>
+      <a href="#services" class="btn btn-outline">See What We Do</a>
+    </div>
+  </div>
+</section>
+
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>DTF PRINTING</span>
+    <span>CUSTOM APPAREL</span>
+    <span>TEAM &amp; EVENT ORDERS</span>
+    <span>FAST TURNAROUND</span>
+    <span>DTF PRINTING</span>
+    <span>CUSTOM APPAREL</span>
+    <span>TEAM &amp; EVENT ORDERS</span>
+    <span>FAST TURNAROUND</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="section-inner">
+    <span class="section-label">What We Offer</span>
+    <h2 class="section-title">Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-num">01</span>
+        <h3>DTF Printing</h3>
+        <p>Vibrant, durable transfers on shirts, hoodies, and more. Built to last wash after wash.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">02</span>
+        <h3>Custom Apparel</h3>
+        <p>Shirts, hats, and staff wear for teams, businesses, and events.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">03</span>
+        <h3>Bulk &amp; Event Orders</h3>
+        <p>Camps, family reunions, staff uniforms. We handle the sizing and the timeline.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">04</span>
+        <h3>Custom Quotes</h3>
+        <p>Got a design or an idea? Send the details and we'll build a quote around it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="background: var(--offwhite);">
+  <div class="section-inner">
+    <span class="section-label">The Process</span>
+    <h2 class="section-title">How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Submit Your Order</h3>
+        <p>Fill out a quick form with what you need.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Get Your Quote</h3>
+        <p>We confirm pricing, sizing, and timeline with you.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>We Print &amp; Press</h3>
+        <p>Your order is produced with care, start to finish.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Pickup or Delivery</h3>
+        <p>Your finished order is ready when promised.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="order" class="order-section">
+  <div class="section-inner">
+    <span class="section-label">Ready When You Are</span>
+    <h2 class="section-title">Place an Order</h2>
+    <div class="order-cards">
+      <div class="order-card">
+        <span class="tag">Popular</span>
+        <h3>5-Shirt Bundle</h3>
+        <p>Our most requested starter order, five custom shirts, one simple form.</p>
+        <a href="https://forms.gle/Mjjrv2wrMSnP4YtQ8" class="btn btn-primary" target="_blank" rel="noopener">Order Now</a>
+      </div>
+      <div class="order-card">
+        <span class="tag">Custom</span>
+        <h3>Get a Custom Quote</h3>
+        <p>Bigger order, different item, or a design of your own? Tell us what you're picturing.</p>
+        <a href="https://forms.gle/nnv4TSy8T1YBvstX6" class="btn btn-outline" target="_blank" rel="noopener">Request a Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">J&amp;J <span>IMPRINT CO.</span></div>
+  <p>Custom Apparel &amp; DTF Printing &middot; Mississippi</p>
+  <p>&copy; 2026 J&amp;J Imprint Co. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
