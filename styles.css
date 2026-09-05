@@ -1,0 +1,231 @@
+/* ===================================================================
+   J&J Imprint Co. — shared styles
+   Brand: black / gold / blush / cream · Cinzel + Jost + Allura
+   =================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #111111;
+  --gold: #C7A86A;
+  --gold-dark: #A8875099;
+  --gold-deep: #A8874F;
+  --blush: #E6C4C2;
+  --blush-deep: #D9A9A6;
+  --cream: #F7F3EF;
+  --taupe: #B7AFA3;
+  --text: #2B2A28;
+  --text-soft: #6B655D;
+  --hairline: #E3DCD3;
+  --white: #FFFFFF;
+  --max: 1120px;
+}
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Jost', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+h1, h2, h3, h4, .display {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+
+.script {
+  font-family: 'Allura', cursive;
+  font-weight: 400;
+  color: var(--gold-deep);
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--gold-deep);
+  outline-offset: 2px;
+}
+
+/* ---------- layout helpers ---------- */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+section { padding: 76px 0; }
+.rule { border: none; border-top: 1px solid var(--hairline); }
+.rule-gold { border: none; border-top: 1px solid var(--gold); width: 64px; margin: 14px 0 22px; }
+.rule-gold.center { margin-left: auto; margin-right: auto; }
+
+/* ---------- job-ticket / spec-card motif ---------- */
+.ticket { position: relative; border: 1px solid var(--black); background: var(--white); }
+.crop { position: absolute; width: 14px; height: 14px; pointer-events: none; }
+.crop.tl { top: -1px; left: -1px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
+.crop.br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold); }
+
+/* ---------- nav ---------- */
+nav { position: sticky; top: 0; z-index: 100; background: var(--black); border-bottom: 2px solid var(--gold); }
+.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 66px; }
+.nav-logo { font-family: 'Cinzel', serif; font-size: 1.15rem; color: var(--white); letter-spacing: 0.06em; text-decoration: none; white-space: nowrap; }
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+.nav-links a { color: #C9C4BB; text-decoration: none; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.03em; transition: color 0.15s; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-cta { background: var(--gold); color: var(--black) !important; padding: 9px 20px; font-weight: 600 !important; font-size: 0.85rem !important; letter-spacing: 0.04em; }
+.nav-cta:hover { background: var(--gold-deep); }
+.nav-toggle { display: none; }
+@media (max-width: 780px) {
+  .nav-links { position: fixed; top: 66px; left: 0; right: 0; background: var(--black); flex-direction: column; align-items: stretch; gap: 0; max-height: 0; overflow: hidden; transition: max-height 0.2s ease; border-bottom: 1px solid #2a2a28; }
+  .nav-links.open { max-height: 340px; }
+  .nav-links li { border-top: 1px solid #2a2a28; }
+  .nav-links a { display: block; padding: 16px 24px; }
+  .nav-cta { display: block; text-align: center; margin: 12px 24px; }
+  .nav-toggle { display: block; background: none; border: none; color: var(--white); font-size: 1.6rem; line-height: 1; cursor: pointer; padding: 4px 8px; }
+}
+
+/* ---------- buttons ---------- */
+.btn { display: inline-block; padding: 14px 28px; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.03em; text-decoration: none; border-radius: 2px; border: 1px solid transparent; transition: transform 0.12s, background 0.15s, color 0.15s; cursor: pointer; }
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: var(--gold); color: var(--black); }
+.btn-primary:hover { background: var(--gold-deep); }
+.btn-dark { background: var(--black); color: var(--white); }
+.btn-dark:hover { background: #000; }
+.btn-outline { background: transparent; color: var(--black); border-color: var(--black); }
+.btn-outline:hover { background: var(--black); color: var(--white); }
+.btn-outline-light { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.45); }
+.btn-outline-light:hover { background: rgba(255,255,255,0.1); }
+.btn-block { display: block; width: 100%; text-align: center; }
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ---------- eyebrow / job labels ---------- */
+.job-label { font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; margin-bottom: 10px; }
+
+/* ---------- hero ---------- */
+.hero { background: var(--black); color: var(--white); padding: 80px 0 68px; }
+.hero-grid { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 48px; align-items: center; }
+@media (max-width: 800px) { .hero-grid { grid-template-columns: 1fr; } }
+.hero h1 { font-size: clamp(2.4rem, 6vw, 3.9rem); margin: 8px 0 18px; color: var(--white); }
+.hero h1 .accent { color: var(--gold); }
+.hero p { max-width: 480px; color: #C9C4BB; font-size: 1.05rem; margin-bottom: 28px; }
+
+.spec-card { border: 1px solid #333; background: #1B1B19; padding: 24px; }
+.spec-card .job-label { margin-bottom: 14px; }
+.spec-row { display: flex; justify-content: space-between; padding: 10px 0; border-top: 1px solid #2E2E2C; font-size: 0.9rem; }
+.spec-row:first-of-type { border-top: none; }
+.spec-row span:first-child { color: #9A968E; }
+.spec-row span:last-child { color: var(--gold); font-weight: 600; text-align: right; }
+
+/* ---------- page header ---------- */
+.page-header { background: var(--black); color: var(--white); padding: 58px 0 46px; }
+.page-header h1 { font-size: clamp(2.1rem, 5vw, 3rem); margin-top: 8px; color: var(--white); }
+.page-header p { color: #C9C4BB; max-width: 560px; margin-top: 14px; }
+
+/* ---------- section headings ---------- */
+.section-head { margin-bottom: 42px; max-width: 620px; }
+.section-head h2 { font-size: clamp(1.8rem, 4.2vw, 2.5rem); margin-top: 6px; }
+.section-head p { color: var(--text-soft); margin-top: 12px; }
+
+/* ---------- service grid ---------- */
+.svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; background: var(--hairline); border: 1px solid var(--black); }
+.svc-card { background: var(--white); padding: 32px 28px; display: flex; flex-direction: column; }
+.svc-card h3 { font-size: 1.2rem; margin: 10px 0 8px; }
+.svc-card p { color: var(--text-soft); font-size: 0.92rem; margin-bottom: 14px; }
+.svc-card .price-tag { font-size: 0.82rem; font-weight: 600; color: var(--gold-deep); border-top: 1px solid var(--hairline); padding-top: 12px; margin-top: auto; }
+.svc-card ul { list-style: none; margin: 10px 0 14px; }
+.svc-card li { font-size: 0.88rem; color: var(--text-soft); padding: 3px 0; }
+.svc-card li::before { content: '— '; color: var(--gold-deep); }
+.svc-card a.card-link { color: var(--gold-deep); font-size: 0.85rem; font-weight: 600; text-decoration: none; }
+.svc-card a.card-link:hover { text-decoration: underline; }
+
+/* ---------- pricing table ---------- */
+.price-table { width: 100%; border-collapse: collapse; font-size: 0.94rem; }
+.price-table th, .price-table td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--hairline); }
+.price-table th { font-family: 'Cinzel', serif; font-weight: 600; text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.06em; color: var(--text-soft); border-bottom: 2px solid var(--black); }
+.price-table td.amt { color: var(--gold-deep); font-weight: 700; white-space: nowrap; }
+.price-table tr:last-child td { border-bottom: none; }
+
+/* ---------- steps ---------- */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0; counter-reset: step; }
+.step { border-left: 2px solid var(--hairline); padding: 0 20px 20px; position: relative; }
+.step::before { counter-increment: step; content: counter(step); font-family: 'Cinzel', serif; font-size: 1rem; color: var(--gold-deep); display: block; margin-bottom: 10px; margin-left: -31px; width: 30px; height: 30px; background: var(--cream); border: 2px solid var(--gold); border-radius: 50%; text-align: center; line-height: 26px; }
+.step h3 { font-size: 1.02rem; margin-bottom: 6px; font-family: 'Jost', sans-serif; font-weight: 700; letter-spacing: 0; }
+.step p { color: var(--text-soft); font-size: 0.9rem; }
+
+/* ---------- callout / policy box ---------- */
+.callout { background: var(--blush); background: color-mix(in srgb, var(--blush) 40%, var(--cream)); border-left: 3px solid var(--gold); padding: 20px 24px; font-size: 0.92rem; color: var(--text); }
+.callout strong { display: block; margin-bottom: 4px; font-family: 'Cinzel', serif; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.04em; color: var(--gold-deep); }
+
+/* ---------- dark & blush sections ---------- */
+.section-dark { background: var(--black); color: var(--white); }
+.section-dark .section-head p { color: #C9C4BB; }
+.section-dark .rule { border-color: #2c2c2a; }
+.section-blush { background: var(--blush); }
+
+/* ---------- image placeholder ---------- */
+.ph { aspect-ratio: 4 / 3; background: var(--white); border: 1px dashed var(--taupe); display: flex; align-items: center; justify-content: center; color: var(--text-soft); font-size: 0.8rem; text-align: center; padding: 12px; }
+
+/* ---------- portfolio grid ---------- */
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+.portfolio-item figcaption { margin-top: 8px; font-size: 0.85rem; color: var(--text-soft); }
+
+/* ---------- order form ---------- */
+.order-form { background: var(--white); border: 1px solid var(--black); }
+.form-head { background: var(--black); color: var(--white); padding: 24px 26px; }
+.form-head .job-label { color: var(--gold); }
+.form-head h2 { font-size: 1.5rem; margin-top: 4px; color: var(--white); }
+.form-body { padding: 30px 26px; }
+.field { margin-bottom: 20px; }
+.field label { display: block; font-family: 'Jost', sans-serif; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; }
+.field .hint { display: block; font-weight: 400; color: var(--text-soft); font-size: 0.8rem; margin-top: 4px; }
+.field input, .field select, .field textarea { width: 100%; padding: 11px 12px; border: 1px solid var(--hairline); background: var(--cream); font-family: inherit; font-size: 0.95rem; color: var(--text); border-radius: 2px; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--gold-deep); }
+.field textarea { resize: vertical; min-height: 100px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 600px) { .field-row { grid-template-columns: 1fr; } }
+.file-drop { border: 1px dashed var(--taupe); padding: 22px; text-align: center; color: var(--text-soft); font-size: 0.88rem; background: var(--cream); }
+.form-note { font-size: 0.82rem; color: var(--text-soft); margin-top: 14px; }
+
+/* ---------- service select cards on order page ---------- */
+.svc-select { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 8px; }
+.svc-select .opt { border: 1px solid var(--hairline); padding: 18px; text-decoration: none; color: var(--text); display: block; background: var(--white); transition: border-color 0.15s; }
+.svc-select .opt:hover { border-color: var(--gold-deep); }
+.svc-select .opt .job-label { margin-bottom: 6px; }
+.svc-select .opt h3 { font-size: 1.05rem; margin-bottom: 4px; }
+.svc-select .opt p { font-size: 0.85rem; color: var(--text-soft); }
+
+/* ---------- FAQ ---------- */
+.faq-item { border-bottom: 1px solid var(--hairline); }
+.faq-item summary { cursor: pointer; padding: 20px 0; font-weight: 600; font-size: 1rem; list-style: none; position: relative; padding-right: 30px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; position: absolute; right: 0; top: 16px; font-family: 'Cinzel', serif; color: var(--gold-deep); font-size: 1.2rem; }
+.faq-item[open] summary::after { content: '–'; }
+.faq-item p { color: var(--text-soft); padding-bottom: 20px; font-size: 0.94rem; max-width: 680px; }
+
+/* ---------- contact ---------- */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+@media (max-width: 760px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-line { display: flex; gap: 14px; padding: 14px 0; border-top: 1px solid var(--hairline); }
+.contact-line:first-child { border-top: none; }
+.contact-line .k { color: var(--text-soft); font-size: 0.85rem; min-width: 90px; }
+.contact-line .v { font-weight: 600; }
+
+/* ---------- footer ---------- */
+footer { background: var(--black); color: #9A968E; padding: 46px 0 32px; border-top: 2px solid var(--gold); }
+.foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; margin-bottom: 32px; }
+@media (max-width: 700px) { .foot-grid { grid-template-columns: 1fr; gap: 24px; } }
+.foot-logo { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--white); letter-spacing: 0.05em; margin-bottom: 10px; }
+.foot-logo span { color: var(--gold); }
+footer p { font-size: 0.85rem; line-height: 1.7; }
+footer h4 { font-family: 'Jost', sans-serif; text-transform: uppercase; letter-spacing: 0.05em; color: var(--white); font-size: 0.8rem; font-weight: 600; margin-bottom: 10px; }
+footer ul { list-style: none; }
+footer a { text-decoration: none; color: #9A968E; font-size: 0.88rem; line-height: 2; }
+footer a:hover { color: var(--gold); }
+.foot-bottom { border-top: 1px solid #2a2a28; padding-top: 20px; font-size: 0.78rem; }
