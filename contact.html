@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | J&amp;J Imprint Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Jost:wght@300;400;500;600;700&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">J<span>&amp;</span>J <span>IMPRINT CO.</span></a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="storefront-branding.html">Storefront Branding</a></li>
+      <li><a href="portfolio.html">Our Work</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="order.html" class="nav-cta">Start Your Order</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="wrap">
+    <div class="job-label">General Questions</div>
+    <h1>Contact</h1>
+    <p>Have a question before you order? Reach out here. Ready to order? Head to Start Your Order so we can get you an accurate quote.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap contact-grid">
+    <div>
+      <div class="section-head">
+        <h2 style="font-size:1.7rem;">Get in touch</h2>
+      </div>
+      <div class="contact-line"><div class="k">Email</div><div class="v">hello@jjimprintco.com</div></div>
+      <div class="contact-line"><div class="k">Phone</div><div class="v">Add your number</div></div>
+      <div class="contact-line"><div class="k">Location</div><div class="v">Mississippi</div></div>
+      <div class="contact-line"><div class="k">Instagram</div><div class="v">@jjimprintco</div></div>
+      <div style="margin-top:28px;"><a href="order.html" class="btn btn-primary">Start Your Order Instead</a></div>
+    </div>
+    <form class="order-form" action="https://formspree.io/f/mgaelvww" method="POST">
+      <div class="form-head"><div class="job-label">General Inquiry</div><h2 style="font-size:1.3rem;">Send a message</h2></div>
+      <div class="form-body">
+        <div class="field"><label>Full name</label><input type="text" name="Full Name" required></div>
+        <div class="field"><label>Email</label><input type="email" name="Email" required></div>
+        <div class="field"><label>Message</label><textarea name="Message" required></textarea></div>
+        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">J<span>&amp;</span>J <span>IMPRINT CO.</span></div>
+        <p>Custom brands, real impact. Serving small businesses, beauty professionals and events across Mississippi.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="storefront-branding.html">Storefront Branding</a></li>
+          <li><a href="portfolio.html">Our Work</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Start Here</h4>
+        <ul>
+          <li><a href="order.html">Start Your Order</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rule" style="border-color:#2a2a28;"></div>
+    <p class="foot-bottom">&copy; 2026 J&amp;J Imprint Co. All rights reserved. &middot; Mississippi</p>
+  </div>
+</footer>
+
+</body>
+</html>
