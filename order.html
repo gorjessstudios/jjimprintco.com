@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Your Order | J&amp;J Imprint Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Jost:wght@300;400;500;600;700&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">J<span>&amp;</span>J <span>IMPRINT CO.</span></a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="storefront-branding.html">Storefront Branding</a></li>
+      <li><a href="portfolio.html">Our Work</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="order.html" class="nav-cta active">Start Your Order</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="wrap">
+    <div class="job-label">Let's Get You Quoted</div>
+    <h1>Start Your Order</h1>
+    <p>Pick your category below and tell us what you have in mind. This is a request, not a confirmed order — we'll review it, confirm production options, and send accurate pricing before anything is booked.</p>
+  </div>
+</div>
+
+<section style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="callout">
+      <strong>Request &ne; Order</strong>
+      Submitting a request lets us review your project and confirm pricing and turnaround. Your order isn't confirmed until your invoice is paid. We don't complete custom design work before payment.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="job-label">Step 1</div>
+      <h2>Choose a category.</h2>
+    </div>
+    <div class="svc-select" id="svcSelect">
+      <a href="#form-apparel" class="opt" data-target="form-apparel">
+        <div class="job-label">01</div>
+        <h3>Branded Apparel</h3>
+        <p>Shirts, staff wear, event &amp; group apparel</p>
+      </a>
+      <a href="#form-storefront" class="opt" data-target="form-storefront">
+        <div class="job-label">02</div>
+        <h3>Storefront Branding</h3>
+        <p>Door decals &amp; window graphics</p>
+      </a>
+      <a href="#form-print" class="opt" data-target="form-print">
+        <div class="job-label">03</div>
+        <h3>Business &amp; Event Print</h3>
+        <p>Banners, cards, signage, menus</p>
+      </a>
+      <a href="#form-custom" class="opt" data-target="form-custom">
+        <div class="job-label">04</div>
+        <h3>Something Else</h3>
+        <p>Not sure which category? Start here.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+
+    <!-- APPAREL -->
+    <form id="form-apparel" class="order-form" style="display:none; margin-bottom:20px;" action="https://formspree.io/f/maeydygl" method="POST" enctype="multipart/form-data">
+      <div class="form-head"><div class="job-label">Category 01</div><h2>Branded Apparel</h2></div>
+      <div class="form-body">
+        <div class="field-row">
+          <div class="field"><label>Full name</label><input type="text" name="Full Name" required></div>
+          <div class="field"><label>Business / organization <span style="font-weight:400; color:var(--text-soft);">(if applicable)</span></label><input type="text" name="Business Name"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Email</label><input type="email" name="Email" required></div>
+          <div class="field"><label>Phone number</label><input type="tel" name="Phone" required></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>What are you ordering?</label>
+            <select name="Item Type" required>
+              <option value="">Select one</option>
+              <option>T-shirts</option>
+              <option>Staff / business shirts</option>
+              <option>Event or group shirts</option>
+              <option>Hoodies / sweatshirts</option>
+              <option>Hats</option>
+              <option>Tote bags</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field"><label>Quantity</label><input type="number" name="Quantity" min="1" required></div>
+        </div>
+        <div class="field"><label>Date needed by</label><input type="date" name="Date Needed"></div>
+        <div class="field"><label>Tell us what you have in mind</label><textarea name="Description" placeholder="Design idea, colors, sizes, placement, anything you want us to know." required></textarea>
+          <span class="hint">Have print-ready art? No design fee. Need help with layout or a custom design, that's $10&ndash;$35 depending on the work &mdash; see pricing on the Services page.</span>
+        </div>
+        <div class="field">
+          <label>Upload your logo, artwork or reference images</label>
+          <input type="file" name="attachment" accept="image/*,.pdf" multiple>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
+        <p class="form-note">Submitting this form does not confirm your order. We'll follow up with pricing and next steps.</p>
+      </div>
+    </form>
+
+    <!-- STOREFRONT -->
+    <form id="form-storefront" class="order-form" style="display:none; margin-bottom:20px;" action="https://formspree.io/f/mjyvevne" method="POST" enctype="multipart/form-data">
+      <div class="form-head"><div class="job-label">Category 02</div><h2>Storefront Branding</h2></div>
+      <div class="form-body">
+        <div class="field-row">
+          <div class="field"><label>Full name</label><input type="text" name="Full Name" required></div>
+          <div class="field"><label>Business / organization</label><input type="text" name="Business Name" required></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Email</label><input type="email" name="Email" required></div>
+          <div class="field"><label>Phone number</label><input type="tel" name="Phone" required></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Project</label>
+            <select name="Project Type" required>
+              <option value="">Select one</option>
+              <option>Business Info Decal (18&Prime; x 24&Prime;)</option>
+              <option>Full Door Branding</option>
+              <option>Double Door Branding</option>
+              <option>Custom sizing</option>
+            </select>
+          </div>
+          <div class="field"><label>Desired dimensions <span style="font-weight:400; color:var(--text-soft);">(if known)</span></label><input type="text" name="Dimensions" placeholder='e.g. 18&quot; x 24&quot;'></div>
+        </div>
+        <div class="field"><label>Date needed by</label><input type="date" name="Date Needed"></div>
+        <div class="field"><label>Tell us what you have in mind</label><textarea name="Description" placeholder="Logo, hours, contact info, photos, QR codes, services — whatever you want on the door." required></textarea>
+          <span class="hint">Have print-ready art? No design fee. Need help with layout or a custom design, that's $10&ndash;$35 depending on the work.</span>
+        </div>
+        <div class="field">
+          <label>Upload a clear, straight-on photo of the door or window</label>
+          <div class="hint">This helps us confirm sizing before quoting.</div>
+          <input type="file" name="attachment" accept="image/*,.pdf" multiple>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
+        <p class="form-note">Submitting this form does not confirm your order. Installation is quoted separately.</p>
+      </div>
+    </form>
+
+    <!-- PRINT -->
+    <form id="form-print" class="order-form" style="display:none; margin-bottom:20px;" action="https://formspree.io/f/xaeydyrl" method="POST" enctype="multipart/form-data">
+      <div class="form-head"><div class="job-label">Category 03</div><h2>Business &amp; Event Print</h2></div>
+      <div class="form-body">
+        <div class="field-row">
+          <div class="field"><label>Full name</label><input type="text" name="Full Name" required></div>
+          <div class="field"><label>Business / organization</label><input type="text" name="Business Name"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Email</label><input type="email" name="Email" required></div>
+          <div class="field"><label>Phone number</label><input type="tel" name="Phone" required></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>What are you ordering?</label>
+            <select name="Item Type" required>
+              <option value="">Select one</option>
+              <option>Retractable banner</option>
+              <option>Business cards</option>
+              <option>QR code signage</option>
+              <option>Table signage</option>
+              <option>Service / price menu</option>
+              <option>Flyer / brochure</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field"><label>Quantity</label><input type="number" name="Quantity" min="1"></div>
+        </div>
+        <div class="field"><label>Date needed by</label><input type="date" name="Date Needed"></div>
+        <div class="field"><label>Tell us what you have in mind</label><textarea name="Description" required></textarea>
+          <span class="hint">Have print-ready art? No design fee. Need help with layout or a custom design, that's $10&ndash;$35 depending on the work.</span>
+        </div>
+        <div class="field">
+          <label>Upload your logo, artwork or reference images</label>
+          <input type="file" name="attachment" accept="image/*,.pdf" multiple>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
+        <p class="form-note">Submitting this form does not confirm your order.</p>
+      </div>
+    </form>
+
+    <!-- CUSTOM -->
+    <form id="form-custom" class="order-form" style="display:none; margin-bottom:20px;" action="https://formspree.io/f/mljeweqz" method="POST" enctype="multipart/form-data">
+      <div class="form-head"><div class="job-label">Category 04</div><h2>Custom Quote</h2></div>
+      <div class="form-body">
+        <div class="field-row">
+          <div class="field"><label>Full name</label><input type="text" name="Full Name" required></div>
+          <div class="field"><label>Business / organization</label><input type="text" name="Business Name"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Email</label><input type="email" name="Email" required></div>
+          <div class="field"><label>Phone number</label><input type="tel" name="Phone" required></div>
+        </div>
+        <div class="field"><label>Quantity <span style="font-weight:400; color:var(--text-soft);">(if known)</span></label><input type="text" name="Quantity"></div>
+        <div class="field"><label>Date needed by</label><input type="date" name="Date Needed"></div>
+        <div class="field"><label>Tell us what you have in mind</label><textarea name="Description" placeholder="What are you picturing? The more detail, the more accurate your quote." required></textarea>
+          <span class="hint">Have print-ready art? No design fee. Need help with layout or a custom design, that's $10&ndash;$35 depending on the work.</span>
+        </div>
+        <div class="field">
+          <label>Upload artwork, photos or reference images</label>
+          <input type="file" name="attachment" accept="image/*,.pdf" multiple>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
+        <p class="form-note">We'll confirm whether this fits our services before quoting.</p>
+      </div>
+    </form>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">J<span>&amp;</span>J <span>IMPRINT CO.</span></div>
+        <p>Custom brands, real impact. Serving small businesses, beauty professionals and events across Mississippi.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="storefront-branding.html">Storefront Branding</a></li>
+          <li><a href="portfolio.html">Our Work</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Start Here</h4>
+        <ul>
+          <li><a href="order.html">Start Your Order</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rule" style="border-color:#2a2a28;"></div>
+    <p class="foot-bottom">&copy; 2026 J&amp;J Imprint Co. All rights reserved. &middot; Mississippi</p>
+  </div>
+</footer>
+
+<script>
+  var forms = ['form-apparel','form-storefront','form-print','form-custom'];
+  var opts = document.querySelectorAll('#svcSelect .opt');
+
+  function showForm(id) {
+    forms.forEach(function(f) {
+      document.getElementById(f).style.display = (f === id) ? 'block' : 'none';
+    });
+    opts.forEach(function(o) {
+      o.style.borderColor = (o.dataset.target === id) ? 'var(--gold-deep)' : 'var(--hairline)';
+    });
+    var el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  opts.forEach(function(o) {
+    o.addEventListener('click', function(e) {
+      e.preventDefault();
+      showForm(o.dataset.target);
+    });
+  });
+
+  var params = new URLSearchParams(window.location.search);
+  var map = { apparel: 'form-apparel', storefront: 'form-storefront', print: 'form-print', custom: 'form-custom' };
+  var svc = params.get('service');
+  if (svc && map[svc]) { showForm(map[svc]); }
+</script>
+
+</body>
+</html>
