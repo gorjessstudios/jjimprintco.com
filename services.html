@@ -1,154 +1,378 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services | J&amp;J Imprint Co.</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>J&J Services</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Jost:wght@300;400;500;600;700&family=Allura&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Jost:wght@400;500;600&family=Allura&display=swap" rel="stylesheet">
+<style>
+/* Layout concept: a bright storefront. Sticky nav, a hero with a small mosaic of real offers,
+   then one section per collection (design, apparel, print), each with prices visible, then steps and contact. */
+:root {
+  --bg: #ffffff;
+  --soft: #fbf3f2;
+  --ink: #1b1a1c;
+  --muted: #655d61;
+  --line: #eadfdd;
+  --blush: #f3d9d8;
+  --rose: #c4848e;
+  --gold: #8a6a2f;
+  --btn-bg: #1b1a1c;
+  --btn-fg: #ffffff;
+  --feature-bg: #1b1a1c;
+  --feature-fg: #ffffff;
+  --feature-muted: #d9cfd2;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Jost', system-ui, sans-serif;
+  --font-script: 'Allura', cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #151315; --soft: #1e1a1c; --ink: #f6f0f0; --muted: #bcb1b5; --line: #352f32;
+    --blush: #3a2a2e; --rose: #d99aa3; --gold: #d2b27a;
+    --btn-bg: #f3d9d8; --btn-fg: #1b1a1c;
+    --feature-bg: #f3d9d8; --feature-fg: #1b1a1c; --feature-muted: #4a3f43;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #151315; --soft: #1e1a1c; --ink: #f6f0f0; --muted: #bcb1b5; --line: #352f32;
+  --blush: #3a2a2e; --rose: #d99aa3; --gold: #d2b27a;
+  --btn-bg: #f3d9d8; --btn-fg: #1b1a1c;
+  --feature-bg: #f3d9d8; --feature-fg: #1b1a1c; --feature-muted: #4a3f43;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.55; padding-inline: 0; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.12; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--rose); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1120px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 32px); }
+.eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 26px; border-radius: 999px; background: var(--btn-bg); color: var(--btn-fg); font-weight: 500; font-size: 16px; text-decoration: none; border: 1.5px solid var(--btn-bg); transition: transform .15s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+
+/* header */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); border-bottom: 1px solid var(--line); }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
+.brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+.brand b { font-family: var(--font-display); font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+.brand span { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.links { display: none; gap: 26px; font-size: 16px; }
+.links a { text-decoration: none; color: var(--muted); }
+.links a:hover { color: var(--ink); }
+.bar-right { display: flex; align-items: center; gap: 12px; }
+.bar .btn { min-height: 42px; padding: 0 20px; font-size: 15px; }
+details.mobile { position: relative; }
+details.mobile summary { list-style: none; cursor: pointer; min-height: 42px; display: inline-flex; align-items: center; padding: 0 16px; border: 1.5px solid var(--line); border-radius: 999px; font-size: 15px; }
+details.mobile summary::-webkit-details-marker { display: none; }
+details.mobile nav { position: absolute; right: 0; top: 52px; min-width: 220px; background: var(--bg); border: 1px solid var(--line); border-radius: 16px; padding: 10px; display: flex; flex-direction: column; box-shadow: 0 12px 32px rgba(0,0,0,.12); }
+details.mobile nav a { padding: 12px 14px; text-decoration: none; border-radius: 10px; }
+details.mobile nav a:hover { background: var(--soft); }
+@media (min-width: 900px) { .links { display: flex; } details.mobile { display: none; } }
+
+/* hero */
+.hero { padding-block: clamp(40px, 7vw, 88px); }
+.hero-grid { display: grid; gap: 40px; grid-template-columns: 1fr; align-items: center; }
+@media (min-width: 900px) { .hero-grid { grid-template-columns: 1.05fr 1fr; gap: 56px; } }
+.hero h1 { font-size: clamp(38px, 6vw, 64px); margin-top: 14px; }
+.hero h1 em { font-style: normal; font-family: var(--font-script); font-weight: 400; color: var(--rose); font-size: 1.25em; line-height: 0.8; }
+.hero p.lead { font-size: 19px; color: var(--muted); max-width: 52ch; margin-top: 20px; }
+.hero .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.mosaic { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 14px; min-width: 0; }
+.tile { border-radius: 20px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; min-width: 0; }
+.tile.a { grid-row: span 2; background: var(--blush); }
+.tile.b { background: var(--feature-bg); color: var(--feature-fg); }
+.tile.c { background: var(--soft); border: 1px solid var(--line); }
+.tile small { font-size: 14px; }
+.mock-card { background: #1b1a1c; color: #e6c887; border-radius: 10px; aspect-ratio: 7 / 4; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px; transform: rotate(-3deg); box-shadow: 0 10px 24px rgba(0,0,0,.18); }
+.mock-card b { font-family: var(--font-display); font-size: 34px; letter-spacing: -0.02em; }
+.mock-card i { font-style: normal; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #f3d9d8; text-align: center; padding-inline: 8px; }
+.big { font-family: var(--font-display); font-size: 40px; font-weight: 600; line-height: 1; }
+
+/* sections */
+section { padding-block: clamp(48px, 7vw, 84px); }
+section.soft { background: var(--soft); }
+.head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; max-width: 62ch; }
+.head h2 { font-size: clamp(30px, 4.2vw, 44px); }
+.head p { color: var(--muted); }
+
+/* collections */
+.collections { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.coll { display: flex; flex-direction: column; gap: 14px; padding: 28px; border: 1px solid var(--line); border-radius: 20px; text-decoration: none; background: var(--bg); min-width: 0; transition: transform .15s ease, border-color .15s ease; }
+.coll:hover { transform: translateY(-3px); border-color: var(--rose); }
+.coll h3 { font-size: 26px; }
+.coll p { color: var(--muted); }
+.coll .from { margin-top: auto; padding-top: 6px; font-weight: 500; }
+.coll .arrow { color: var(--gold); font-weight: 600; }
+
+/* packages */
+.packs { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); align-items: stretch; }
+.pack { display: flex; flex-direction: column; gap: 16px; padding: 30px; border-radius: 20px; border: 1px solid var(--line); background: var(--bg); min-width: 0; }
+.pack.feature { background: var(--feature-bg); color: var(--feature-fg); border-color: var(--feature-bg); }
+.pack .tag { align-self: flex-start; padding: 4px 12px; border-radius: 999px; background: var(--rose); color: #1b1a1c; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+.pack h3 { font-size: 26px; }
+.price { font-family: var(--font-display); font-size: 56px; font-weight: 600; line-height: 1; }
+.price sup { font-size: 24px; vertical-align: top; position: relative; top: 8px; margin-right: 2px; }
+.pack .for { color: var(--muted); }
+.pack.feature .for { color: var(--feature-muted); }
+ul.ticks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+ul.ticks li { position: relative; padding-left: 22px; }
+ul.ticks li::before { content: ""; position: absolute; left: 2px; top: 0.6em; width: 8px; height: 8px; border-radius: 50%; background: var(--rose); }
+.pack .btn { margin-top: auto; }
+.pack.feature .btn { background: var(--rose); color: #1b1a1c; border-color: var(--rose); }
+.note { margin-top: 22px; color: var(--muted); font-size: 15px; }
+
+/* apparel */
+.two { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+.tiers { display: grid; gap: 14px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.tier { padding: 22px 16px; border-radius: 16px; background: var(--bg); border: 1px solid var(--line); text-align: center; }
+.tier .qty { font-size: 14px; color: var(--muted); }
+.tier .amt { font-family: var(--font-display); font-size: 38px; font-weight: 600; line-height: 1.1; margin-top: 4px; }
+.tier .per { font-size: 14px; color: var(--muted); }
+.panel { padding: 26px; border-radius: 20px; background: var(--bg); border: 1px solid var(--line); min-width: 0; }
+.panel h3 { font-size: 22px; margin-bottom: 12px; }
+.rows { display: flex; flex-direction: column; }
+.row { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+.row:last-child { border-bottom: 0; }
+.row span:last-child { font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.deal { margin-top: 14px; padding: 18px 20px; border-radius: 16px; background: var(--blush); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.deal b { font-family: var(--font-display); font-size: 22px; }
+
+/* print products */
+.products { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
+.prod { border: 1px solid var(--line); border-radius: 20px; overflow: hidden; background: var(--bg); display: flex; flex-direction: column; min-width: 0; }
+.prod .pic { background: var(--blush); color: var(--ink); height: 130px; display: flex; align-items: center; justify-content: center; }
+.prod .pic svg { width: 64px; height: 64px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.prod .body { padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 6px; }
+.prod h3 { font-size: 20px; }
+.prod .cost { font-weight: 600; }
+.prod .sub { color: var(--muted); font-size: 15px; }
+
+/* steps */
+.steps { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); counter-reset: s; list-style: none; padding: 0; margin: 0; }
+.steps li { counter-increment: s; padding: 24px; border-radius: 20px; border: 1px solid var(--line); background: var(--bg); display: flex; flex-direction: column; gap: 8px; }
+.steps li::before { content: counter(s); width: 36px; height: 36px; border-radius: 50%; background: var(--blush); color: var(--ink); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 600; }
+.steps h3 { font-size: 20px; }
+.steps p { color: var(--muted); font-size: 16px; }
+
+/* contact */
+.contact { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); align-items: start; }
+.contact h2 { font-size: clamp(30px, 4.2vw, 44px); }
+.contact .lines { display: flex; flex-direction: column; gap: 14px; }
+.contact .lines div { display: flex; flex-direction: column; }
+.contact .lines small { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+.contact .lines span { user-select: all; font-size: 19px; }
+footer { border-top: 1px solid var(--line); padding-block: 32px; color: var(--muted); font-size: 15px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+/* form */
+.form { display: grid; gap: 18px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.form .full { grid-column: 1 / -1; }
+@media (max-width: 640px) { .form { grid-template-columns: 1fr; } }
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.field label { font-size: 15px; font-weight: 500; }
+.field .hint { font-size: 14px; color: var(--muted); }
+.field input, .field select, .field textarea { font: inherit; color: var(--ink); background: var(--bg); border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; min-height: 48px; width: 100%; }
+.field textarea { min-height: 140px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--rose); outline: 3px solid color-mix(in srgb, var(--rose) 35%, transparent); outline-offset: 0; }
+.hp { position: absolute; left: -9999px; height: 0; width: 0; overflow: hidden; }
+.formcard { padding: clamp(20px, 4vw, 36px); border: 1px solid var(--line); border-radius: 24px; background: var(--bg); }
+.pagehead { padding-block: clamp(36px, 6vw, 64px) 8px; }
+.pagehead h1 { font-size: clamp(36px, 5.4vw, 56px); margin-top: 12px; }
+.pagehead p { color: var(--muted); margin-top: 14px; max-width: 58ch; font-size: 19px; }
+/* faq */
+.faq { display: flex; flex-direction: column; max-width: 820px; }
+.faq details { border-bottom: 1px solid var(--line); padding-block: 4px; }
+.faq summary { cursor: pointer; list-style: none; padding: 18px 40px 18px 0; font-family: var(--font-display); font-size: 21px; font-weight: 600; position: relative; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font-size: 26px; color: var(--gold); }
+.faq details[open] summary::after { content: "\2212"; }
+.faq .ans { padding: 0 0 20px; color: var(--muted); max-width: 64ch; }
+/* portfolio */
+.gallery { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+.work { border: 1px solid var(--line); border-radius: 20px; overflow: hidden; background: var(--bg); min-width: 0; }
+.work .shot { aspect-ratio: 4 / 3; max-width: 100%; background: var(--blush); display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; color: var(--muted); font-size: 15px; }
+.work .cap { padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 2px; }
+.work .cap b { font-family: var(--font-display); font-size: 20px; font-weight: 600; }
+.work .cap span { color: var(--muted); font-size: 15px; }
+</style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">J<span>&amp;</span>J <span>IMPRINT CO.</span></a>
-    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="services.html" class="active">Services</a></li>
-      <li><a href="storefront-branding.html">Storefront Branding</a></li>
-      <li><a href="portfolio.html">Our Work</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="order.html" class="nav-cta">Start Your Order</a></li>
-    </ul>
-  </div>
-</nav>
 
-<div class="page-header">
-  <div class="wrap">
-    <div class="job-label">What We Offer</div>
-    <h1>Services</h1>
-    <p>A curated menu built around what businesses, beauty professionals and event groups actually need. Anything outside this list, or larger than what's shown, gets a custom quote.</p>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="./" aria-label="J&amp;J home"><b>J&amp;J</b><span>Design &middot; Print</span></a>
+    <nav class="links" aria-label="Main"><a href="services.html" aria-current="page" style="color: var(--ink)">Services</a><a href="portfolio.html">Portfolio</a><a href="faq.html">FAQ</a></nav>
+    <div class="bar-right">
+      <a class="btn" href="order.html">Start an order</a>
+      <details class="mobile">
+        <summary>Menu</summary>
+        <nav aria-label="Mobile"><a href="services.html" aria-current="page" style="color: var(--ink)">Services</a><a href="portfolio.html">Portfolio</a><a href="faq.html">FAQ</a><a href="order.html">Order</a></nav>
+      </details>
+    </div>
   </div>
-</div>
+</header>
 
-<section>
+<main id="top">
+<div class="pagehead"><div class="wrap">
+  <div class="eyebrow">Services and pricing</div>
+  <h1>Everything we offer, with the price</h1>
+  <p>Brand packages, custom apparel, and print. Founder pricing on brand packages for the first 10 clients.</p>
+</div></div><section class="soft" id="design">
   <div class="wrap">
-    <div class="section-head">
-      <div class="job-label">01</div>
-      <h2>Branded Apparel</h2>
-      <p>Custom-printed shirts, staff and team uniforms, event and group apparel, family reunion and trip shirts.</p>
+    <div class="head">
+      <div class="eyebrow">Brand Packages</div>
+      <h2>Three ways to look like a business</h2>
+      <p>Founder pricing for the first 10 clients. Each package lists exactly what you get.</p>
     </div>
-    <table class="price-table">
-      <tr><th>Shirts</th><th>Price Each</th></tr>
-      <tr><td>1&ndash;4 shirts</td><td class="amt">$25</td></tr>
-      <tr><td>5&ndash;11 shirts</td><td class="amt">$22</td></tr>
-      <tr><td>12+ shirts</td><td class="amt">$20</td></tr>
-    </table>
-    <table class="price-table" style="margin-top:8px;">
-      <tr><th>Add-ons</th><th>Price</th></tr>
-      <tr><td>Back print</td><td class="amt">+$7 / shirt</td></tr>
-      <tr><td>Sleeve print</td><td class="amt">+$5 / shirt</td></tr>
-      <tr><td>Personalized name / number</td><td class="amt">+$7 each</td></tr>
-      <tr><td>3XL</td><td class="amt">+$3</td></tr>
-      <tr><td>Rush fee <span style="font-weight:400; color:var(--text-soft); font-size:0.82em;">(by request, subject to approval)</span></td><td class="amt">Starting at $50</td></tr>
-    </table>
-    <table class="price-table" style="margin-top:8px;">
-      <tr><th>Design &amp; Setup</th><th>Price</th></tr>
-      <tr><td>Print-ready file (yours, ready to go)</td><td class="amt">No fee</td></tr>
-      <tr><td>File cleanup / background removal</td><td class="amt">$10</td></tr>
-      <tr><td>Simple text / logo arrangement</td><td class="amt">$20</td></tr>
-      <tr><td>Custom design from scratch</td><td class="amt">$35</td></tr>
-    </table>
-    <div class="callout" style="margin-top:16px;">
-      <strong>Note</strong>
-      Hoodies, sweatshirts, hats, tote bags, specialty garments, and large bulk orders are quoted individually &mdash; submit a request and we'll price it out.
+    <div class="packs">
+      <div class="pack">
+        <h3>The Logo</h3>
+        <div class="price"><sup>$</sup>99</div>
+        <p class="for">A professional logo for a new brand.</p>
+        <ul class="ticks">
+          <li>1 custom logo concept</li>
+          <li>Up to 3 revisions</li>
+          <li>PDF, JPG and transparent PNG files</li>
+        </ul>
+        <a class="btn ghost" href="order.html?service=design&amp;pick=logo">Choose The Logo</a>
+      </div>
+      <div class="pack">
+        <h3>The Brand</h3>
+        <div class="price"><sup>$</sup>225</div>
+        <p class="for">A full identity so every touchpoint matches.</p>
+        <ul class="ticks">
+          <li>3 logo concepts, up to 6 revisions</li>
+          <li>Primary logo, secondary logo and submark</li>
+          <li>Color palette and font pairing</li>
+          <li>Brand board</li>
+          <li>PNG, JPG, PDF and SVG files</li>
+        </ul>
+        <a class="btn ghost" href="order.html?service=design&amp;pick=brand">Choose The Brand</a>
+      </div>
+      <div class="pack feature">
+        <span class="tag">Most complete</span>
+        <h3>The Brand Builder</h3>
+        <div class="price"><sup>$</sup>375</div>
+        <p class="for">Your identity plus everything you hand to clients.</p>
+        <ul class="ticks">
+          <li>Everything in The Brand</li>
+          <li>250 business cards, shipped to you</li>
+          <li>Digital business card with booking QR</li>
+          <li>Price menu flyer</li>
+          <li>5 branded tees and a branded tote</li>
+          <li>Digital appointment planner</li>
+        </ul>
+        <a class="btn" href="order.html?service=design&amp;pick=builder">Choose The Brand Builder</a>
+      </div>
     </div>
-    <div style="margin-top:22px;"><a href="order.html?service=apparel" class="btn btn-dark">Start an Apparel Order</a></div>
+    <p class="note">Logo ready in 3 to 5 days. Brand and Brand Builder ready in 10 to 14 business days. 50% deposit to book. Extra revision rounds are $15 each.</p>
+  </div>
+</section><section class="soft" id="apparel">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Custom Apparel</div>
+      <h2>Branded shirts, priced by quantity</h2>
+      <p>The more you order, the less each shirt costs. Send print-ready art and there is no design fee.</p>
+    </div>
+    <div class="two">
+      <div>
+        <div class="tiers">
+          <div class="tier"><div class="qty">1 to 4 shirts</div><div class="amt">$25</div><div class="per">each</div></div>
+          <div class="tier"><div class="qty">5 to 11 shirts</div><div class="amt">$22</div><div class="per">each</div></div>
+          <div class="tier"><div class="qty">12 or more</div><div class="amt">$20</div><div class="per">each</div></div>
+        </div>
+        <div class="deal">
+          <div><b>5 branded tees for $85</b><div style="color: var(--muted); font-size: 15px;">A simple team or booth set.</div></div>
+          <a class="btn" href="order.html?service=apparel&amp;pick=tees">Order tees</a>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Add-ons</h3>
+        <div class="rows">
+          <div class="row"><span>Back print</span><span>+$7</span></div>
+          <div class="row"><span>Sleeve print</span><span>+$5</span></div>
+          <div class="row"><span>Name or number, each</span><span>+$7</span></div>
+          <div class="row"><span>3XL</span><span>+$3</span></div>
+          <div class="row"><span>Rush order (by approval)</span><span>from $50</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><section id="print">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Print &amp; Promo</div>
+      <h2>Everything for your station and your clients</h2>
+      <p>Printed cards ship standard, and shipping is included in the price.</p>
+    </div>
+    <div class="products">
+      <a class="prod" href="order.html?service=print&amp;pick=cards" style="text-decoration: none;">
+        <div class="pic"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="16" width="48" height="32" rx="4"/><path d="M16 28h20M16 36h12"/></svg></div>
+        <div class="body"><h3>Business cards</h3><div class="cost">Design + 50 for $70</div><div class="sub">100 for $80, 250 for $105. Design only is $40.</div></div>
+      </a>
+      <a class="prod" href="order.html?service=print&amp;pick=menu" style="text-decoration: none;">
+        <div class="pic"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="8" width="36" height="48" rx="3"/><path d="M22 20h20M22 28h20M22 36h12"/></svg></div>
+        <div class="body"><h3>Price menu or flyer</h3><div class="cost">$25</div><div class="sub">Designed to match your brand.</div></div>
+      </a>
+      <a class="prod" href="order.html?service=print&amp;pick=tote" style="text-decoration: none;">
+        <div class="pic"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 24h36l-3 32H17z"/><path d="M24 24c0-10 16-10 16 0"/></svg></div>
+        <div class="body"><h3>Branded tote</h3><div class="cost">$20</div><div class="sub">Canvas. Upgrade to premium for +$10.</div></div>
+      </a>
+      <a class="prod" href="order.html?service=print&amp;pick=cape" style="text-decoration: none;">
+        <div class="pic"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M22 10l-14 8 6 10 6-3v29h24V25l6 3 6-10-14-8c-2 6-14 6-16 0z"/></svg></div>
+        <div class="body"><h3>Scrub top or cape</h3><div class="cost">$40 each</div><div class="sub">With your logo.</div></div>
+      </a>
+      <a class="prod" href="order.html?service=print&amp;pick=planner" style="text-decoration: none;">
+        <div class="pic"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="12" y="8" width="40" height="48" rx="4"/><path d="M20 4v8M32 4v8M44 4v8M20 24h24M20 32h24M20 40h16"/></svg></div>
+        <div class="body"><h3>Digital planner</h3><div class="cost">$30</div><div class="sub">An appointment planner in your colors.</div></div>
+      </a>
+      <a class="prod" href="order.html?service=design&amp;pick=board" style="text-decoration: none;">
+        <div class="pic"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="10" width="44" height="44" rx="4"/><path d="M32 22v20M22 32h20"/></svg></div>
+        <div class="body"><h3>Brand board add-on</h3><div class="cost">$40</div><div class="sub">Colors, fonts and logo rules in one page.</div></div>
+      </a>
+    </div>
+    <div class="panel" style="margin-top: 28px; max-width: 520px;">
+      <h3>Design and setup fees</h3>
+      <div class="rows">
+        <div class="row"><span>Print-ready file</span><span>No fee</span></div>
+        <div class="row"><span>File cleanup or background removal</span><span>$10</span></div>
+        <div class="row"><span>Simple text or logo arrangement</span><span>$20</span></div>
+        <div class="row"><span>Custom design from scratch</span><span>$35</span></div>
+      </div>
+    </div>
+  </div>
+</section><section>
+  <div class="wrap contact">
+    <div>
+      <div class="eyebrow">Start an order</div>
+      <h2>Tell us what you are building</h2>
+      <p style="color: var(--muted); margin-top: 14px; max-width: 46ch;">Send us your idea, your quantity and your deadline. We reply with a clear price and a timeline.</p>
+      <div style="margin-top: 26px;"><a class="btn" href="order.html">Open the order form</a></div>
+    </div>
+    <div class="lines">
+      <div><small>Phone</small><span>[YOUR PHONE]</span></div>
+      <div><small>Email</small><span>[YOUR EMAIL]</span></div>
+      <div><small>Instagram</small><span>[YOUR HANDLE]</span></div>
+      <div><small>Based in</small><span>Walls, Mississippi</span></div>
+    </div>
   </div>
 </section>
-
-<section class="section-blush">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="job-label">02 &middot; Featured</div>
-      <h2>Storefront Branding</h2>
-      <p>Turn a rented suite or storefront into a real, established business with a decal or full window graphic.</p>
-    </div>
-    <table class="price-table">
-      <tr><th>Item</th><th>Pricing</th></tr>
-      <tr><td>Business Info Door Decal (18&Prime; x 24&Prime;)</td><td class="amt">Starting at $135</td></tr>
-      <tr><td>Full Door Branding (up to 30&Prime; x 72&Prime; per panel)</td><td class="amt">Starting at $225 / panel</td></tr>
-      <tr><td>Double Door Branding</td><td class="amt">Starting at $425</td></tr>
-      <tr><td>Custom sizing</td><td class="amt">Request a quote</td></tr>
-    </table>
-    <div style="margin-top:22px; display:flex; gap:12px; flex-wrap:wrap;">
-      <a href="storefront-branding.html" class="btn btn-outline">View Storefront Branding</a>
-      <a href="order.html?service=storefront" class="btn btn-dark">Start a Storefront Order</a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <div class="job-label">03</div>
-      <h2>Business &amp; Event Print</h2>
-      <p>Retractable banners, business cards, QR code signage, table signage, service and price menus, flyers and brochures.</p>
-    </div>
-    <table class="price-table">
-      <tr><th>Item</th><th>Pricing</th></tr>
-      <tr><td>Retractable banners</td><td class="amt">Custom quote</td></tr>
-      <tr><td>Business cards</td><td class="amt">Custom quote</td></tr>
-      <tr><td>QR code &amp; table signage</td><td class="amt">Custom quote</td></tr>
-      <tr><td>Service / price menus, flyers &amp; brochures</td><td class="amt">Custom quote</td></tr>
-    </table>
-    <table class="price-table" style="margin-top:8px;">
-      <tr><th>Design &amp; Setup</th><th>Price</th></tr>
-      <tr><td>Print-ready file (yours, ready to go)</td><td class="amt">No fee</td></tr>
-      <tr><td>File cleanup / background removal</td><td class="amt">$10</td></tr>
-      <tr><td>Simple text / logo arrangement</td><td class="amt">$20</td></tr>
-      <tr><td>Custom design from scratch</td><td class="amt">$35</td></tr>
-    </table>
-    <div style="margin-top:22px;"><a href="order.html?service=print" class="btn btn-dark">Start a Print Order</a></div>
-  </div>
-</section>
-
-<section class="section-dark" style="text-align:center;">
-  <div class="wrap">
-    <h2 style="font-size:clamp(1.7rem,4vw,2.2rem); margin-bottom:14px;">Don't see what you need?</h2>
-    <p style="color:#C9C4BB; max-width:480px; margin:0 auto 24px;">If it's outside our standard menu, we'd rather quote it properly than guess. Tell us what you're picturing.</p>
-    <a href="order.html?service=custom" class="btn btn-primary">Request a Custom Quote</a>
-  </div>
-</section>
+</main>
 
 <footer>
   <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-logo">J<span>&amp;</span>J <span>IMPRINT CO.</span></div>
-        <p>Custom brands, real impact. Serving small businesses, beauty professionals and events across Mississippi.</p>
-      </div>
-      <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="storefront-branding.html">Storefront Branding</a></li>
-          <li><a href="portfolio.html">Our Work</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Start Here</h4>
-        <ul>
-          <li><a href="order.html">Start Your Order</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="rule" style="border-color:#2a2a28;"></div>
-    <p class="foot-bottom">&copy; 2026 J&amp;J Imprint Co. All rights reserved. &middot; Mississippi</p>
+    <div><b style="font-family: var(--font-display); color: var(--ink);">J&amp;J</b> &middot; Custom Brands. Real Impact.</div>
+    <div>Walls, Mississippi &middot; [YOUR EMAIL]</div>
   </div>
 </footer>
 
